@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korzinka</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="overflow-x-hidden bg-[#F5F5F5] text-[#414141] font-sans">
+
+    <header class="bg-white shadow-md fixed top-0 left-0 w-full z-10">
+        <div class="container px-20 mx-auto flex flex-wrap items-center justify-between px-4 py-3">
+            <div class="flex justify-between items-center gap-5 mt-3 md:mt-0 w-full">
+                <div class="flex gap-5 justify-between items-center">
+                    <img src="../images/logo (1).svg" alt="Logo" class="w-40 md:w-60 h-auto mb-2  sm:w-25" />
+                    <div class="hidden md:flex items-center gap-4 w-full md:w-auto">
+                        <button
+                            class="bg-green-500 text-white px-4 py-2 md:px-6 md:py-3 rounded hover:bg-green-700 transition text-sm  md:text-base hidden lg:flex">
+                            Каталог
+                        </button>
+
+                        <input type="text" placeholder="Найти товар..."
+                            class=" w-90 border border-gray-300 hover:border-green-500 rounded px-3 py-2 md:py-3 w-full max-w-xs md:max-w-md md:w-full-md focus:outline-none focus:ring-2 focus:ring-green-500 text-sm md:text-base" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 justify-end hidden md:flex">
+                    <button class="flex flex-col items-center hover:scale-105 transition text-xs">
+                        <img src="../images/Frame 211.svg" alt="Like" class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                        <p class="md:text-[10px]">Избранное</p>
+                    </button>
+
+                    <button class="flex flex-col items-center hover:scale-105 transition text-xs">
+                        <img src="../images/Frame 211 (1).svg" alt="Product"
+                            class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                        <p class="md:text-[10px]">Продукты</p>
+                    </button>
+
+                    <button class="flex flex-col items-center hover:scale-105 transition text-xs">
+                        <img src="../images/shopping-cart.svg" alt="Buy" class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                        <p class="m.d:text-[10px]">Корзина</p>
+                    </button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <img src="../images/avatar.svg" alt="avatar"
+                        class="w-8 h-8 md:w-9 md:h-9 rounded-full border md:w-5 md:h-5" />
+                    <div class="font-medium text-sm md:text-base md:text-[14px]">Алексей</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="overflow-hidden pt-20">
+        <section class="container px-20 mx-auto mt-10 px-4">
+            <img src="../images/Frame 120.svg" alt="">
+        </section>
+        <section class="container px-20 mx-auto mt-5 px-4">
+            <div>
+                <h3 class="text-xl text-[clamp(60px,4vw,60px)] text-[#414141] font-bold">Корзина</h3>
+            </div>
+        </section>
+    </main>
+    <footer class="text-gray-700 relative w-full mt-10 overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('./images/bg.svg');"></div>
+        <div class="relative z-10 container mx-auto px-20 py-10">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+    
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+                    <div class="w-20 h-20 flex items-center justify-center rounded-lg">
+                        <img src="./images/logo (2).svg" alt="">
+                    </div>
+    
+                    <div class="flex flex-col text-[clamp(12px,1.5vw,16px)] gap-2">
+                        <div class="flex flex-wrap gap-6">
+                            <a href="#" class="hover:text-green-400">Ссылка</a>
+                            <a href="#" class="hover:text-green-400">Контакты</a>
+                            <a href="#" class="hover:text-green-400">Вакансии</a>
+                        </div>
+                        <div class="flex flex-wrap gap-6">
+                            <a href="#" class="hover:text-green-400">Статьи</a>
+                            <a href="#" class="hover:text-green-400">Политика обработки</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="flex flex-col items-end gap-4">
+                    <div class="flex gap-4">
+                        <img src="./images/instagram.svg" class="w-6 h-6 hover:opacity-80">
+                        <img src="./images/vkontakte.svg" class="w-6 h-6 hover:opacity-80">
+                        <img src="./images/facebook.svg" class="w-6 h-6 hover:opacity-80">
+                        <img src="./images/ok.svg" class="w-6 h-6 hover:opacity-80">
+                    </div>
+                    <div class="flex items-center gap-2 text-[clamp(12px,1.5vw,16px)]">
+                        <img src="./images/phone.svg" class="w-5 h-5" alt="">
+                        <span>8 800 777 33 33</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div
+                class="mt-8 border-t border-gray-600 pt-4 flex flex-col md:flex-row items-center justify-between text-[clamp(10px,1.2vw,14px)] text-gray-400">
+                <div class="flex items-center gap-2">
+                    <a href="#" class="hover:text-green-400">Дизайн</a>
+                    <img src="./images/Union.svg" alt="">
+                </div>
+                <p class="mt-2 md:mt-0">© 2025 Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
