@@ -1,6 +1,7 @@
 let cards = document.getElementById("cards")
 let newCards = document.getElementById("new")
 let vses = document.getElementById("vse")
+let loading = document.getElementById("loading")
 let aksiyaProducts = products.filter((el) => el.discount > 0)
 
 let aksiyaLastFourProducts = aksiyaProducts.slice(aksiyaProducts.length - 4, aksiyaProducts.length)
@@ -192,3 +193,7 @@ function showProduct(content, data) {
 showProducts(cards, aksiyaLastFourProducts)
 showProduct(newCards, newFourProducts)
 showProduct(vses, vseFourProducts)
+
+window.addEventListener("load", function(){
+    loading.classList.add("hidden")
+})
