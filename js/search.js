@@ -18,14 +18,14 @@ input.addEventListener("input", function (e) {
     searchedProducts.length > 0 ?
     searchedProducts.map((el) => {
         searchCards.innerHTML += `
-        <div class="flex gap-[20px] border-[2px] border-[green] rounded-[5px] p-[10px]">
-                                <img class="w-[80px] h-[90px]" 
+        <div class="flex gap-[10px] border-[2px] border-[green] rounded-[5px] p-[5px]">
+                                <img class="w-[85px] h-[90px] rounded" 
                                 src=${el.images[0]} 
                                 alt=""
                                 />
                                 <div class="flex flex-col justify-between">
-                                    <h3>${el.name}</h3>
-                                    <p class="line-clamp-2">${el.description}</p>
+                                    <h4>${el.name}</h4>
+                                    <p class="line-clamp-2 object-cover">${el.description}</p>
                                 </div>
                             </div>`;
     }) : searchCards.innerHTML = `<h4>Bunday mahsulot mavjud emas!</h4>`

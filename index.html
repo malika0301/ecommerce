@@ -47,7 +47,6 @@
             font-size: clamp(11px, 1vw, 14px);
         }
     </style>
-
 </head>
 
 <body class="overflow-x-hidden bg-[#F5F5F5] text-[#414141] font-sans">
@@ -58,35 +57,50 @@
     <header class="bg-white shadow-md fixed top-0 left-0 w-full z-10">
         <div class="container px-15 mx-auto flex flex-wrap items-center justify-between px-4 py-3">
             <div class="flex justify-between items-center gap-5 mt-3 md:mt-0 w-full">
-                <div class="flex gap-5 justify-between items-center">
-                    <img src="./images/logo (1).svg" alt="Logo" class="w-40 md:w-60 h-auto mb-2  sm:w-25" />
+                <div class="flex gap-5 justify-between items-center ">
+                    <a href="./index.html"><img src="./images/logo (1).svg" alt="Logo"
+                            class="w-40 md:w-60 h-auto mb-2  sm:w-25" /></a>
                     <button
-                        class="bg-green-500  text-white px-4 py-2 md:px-6 md:py-3 rounded-[10px] hover:bg-green-700 transition text-sm  md:text-base hidden lg:flex">
+                        class="bg-green-500 cursor-pointer text-white px-4 py-2 md:px-6 md:py-3 rounded-[10px] hover:bg-green-700 transition text-sm  md:text-base hidden lg:flex">
                         Каталог
                     </button>
                     <div class="max-w-[600px] relative w-full flex flex-col gap-[5px]">
-                        <input id="input" class=" w-full border p-[12px] border-gray-300 hover:border-green-500 rounded-[10px] outline-none text-[18px] md:text-base hidden lg:flex" type="search" placeholder="Найти товар..." />
-                        <div id="search-cards" class="w-full absolute hidden max-h-[300px] overflow-y-scroll top-[70px] flex flex-col gap-[10px] border-[2px] bg-white border-[green] rounded-[10px] p-[20px]">
-                            
+                        <input id="input"
+                            class=" w-full border p-[12px] border-gray-300 hover:border-green-500 rounded-[10px] outline-none text-[18px] md:text-base hidden lg:flex"
+                            type="search" placeholder="Найти товар..." />
+                        <div id="search-cards"
+                            class="w-full absolute hidden max-h-[300px] overflow-y-scroll top-[70px] flex flex-col gap-[10px] border-[2px] bg-white border-[green] rounded-[10px] p-[10px]">
+
                         </div>
                     </div>
                 </div>
                 <div class="flex items-center gap-4 justify-end hidden md:flex">
-                    <button class="flex flex-col items-center hover:scale-105 transition text-xs">
-                        <img src="./images/Frame 211.svg" alt="Like" class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
-                        <p class="md:text-[10px]">Избранное</p>
-                    </button>
+                    <a class="flex items-start" href="">
+                        <button class="flex flex-col items-center hover:scale-105 transition text-xs cursor-pointer">
+                            <img src="./images/Frame 211.svg" alt="Like" class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                            <p class="text-[10px]">Избранное</p>
+                        </button>
+                        <span id="likeBages" class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] text-[10px] font-bold bg-[blue]">0</span>
+                    </a>
 
-                    <button class="flex flex-col items-center hover:scale-105 transition text-xs">
-                        <img src="./images/Frame 211 (1).svg" alt="Product"
-                            class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
-                        <p class="md:text-[10px]">Продукты</p>
-                    </button>
-
-                    <button class="flex flex-col items-center hover:scale-105 transition text-xs">
-                        <img src="./images/shopping-cart.svg" alt="Buy" class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
-                        <p class="md:text-[10px]">Корзина</p>
-                    </button>
+                    <a class="flex items-start" href="">
+                        <button class="flex flex-col items-center hover:scale-105 transition text-xs cursor-pointer">
+                            <img src="./images/Frame 211 (1).svg" alt="Product"
+                                class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                            <p class="text-[10px]">Продукты</p>
+                        </button>
+                        <span class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] font-bold text-[10px] bg-[green]">0</span>
+                    </a>
+                    <a class="flex items-start"
+                        href="./pages/korzinka.html">
+                        <button class="flex flex-col items-center hover:scale-105 transition text-xs cursor-pointer">
+                            <img src="./images/shopping-cart.svg" alt="Buy"
+                                class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                            <p class="text-[10px]">Корзина</p>
+                        </button>
+                        <span id="badge"
+                            class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] text-[10px]  font-bold bg-[red]">0</span>
+                    </a>
                 </div>
                 <div class="flex items-center gap-2">
                     <img src="./images/avatar.svg" alt="avatar"
@@ -200,9 +214,11 @@
                     <img src="./images/image 5 (3).png" alt="Фото 1" class="w-full h-48 object-cover" />
                     <div class="p-4">
                         <p class="text-sm text-gray-500 mb-2">05.03.2021</p>
-                        <h2 class="text-lg font-semibold mb-5 text-gray-800">Режим использования масок и перчаток на
+                        <h2 class="text-lg font-semibold mb-5 text-gray-800 line-clamp-2">Режим использования масок и
+                            перчаток на
                             территории магазинов</h2>
-                        <p class="text-sm text-gray-500 mb-2">Подробная информация о режимах использования масок и
+                        <p class="text-sm text-gray-500 mb-2 line-clamp-2">Подробная информация о режимах использования
+                            масок и
                             перчаток на территории магазинов "ЛЕНТА". Информация обновляется
                             каждый будний день.</p>
                         <button
@@ -215,8 +231,10 @@
                     <img src="./images/image 5 (4).png" alt="Фото 2" class="w-full h-48 object-cover" />
                     <div class="p-4">
                         <p class="text-sm text-gray-500 mb-2">05.03.2021</p>
-                        <h2 class="text-lg font-semibold mb-5 text-gray-800">Весеннее настроение для каждой</h2>
-                        <p class="text-sm text-gray-500 mb-2">8 Марта – это не просто Международный женский день, это
+                        <h2 class="text-lg font-semibold mb-5 text-gray-800 line-clamp-2">Весеннее настроение для каждой
+                        </h2>
+                        <p class="text-sm text-gray-500 mb-2 line-clamp-2">8 Марта – это не просто Международный женский
+                            день, это
                             ещё день тюльпанов, приятных сюрпризов и праздничных тёплых
                             пожеланий.</p>
                         <button
@@ -229,9 +247,10 @@
                     <img src="./images/image 5 (5).png" alt="Фото 3" class="w-full h-48 object-cover" />
                     <div class="p-4">
                         <p class="text-sm text-gray-500 mb-2">05.03.2021</p>
-                        <h2 class="text-lg font-semibold text-gray-800">ЗОЖ или ФАСТФУД. А вы на чьей стороне? Голосуем!
+                        <h2 class="text-lg font-semibold text-gray-800 line-clamp-2 mb-5">ЗОЖ или ФАСТФУД. А вы на чьей
+                            стороне? Голосуем!
                         </h2>
-                        <p class="text-sm text-gray-500 mb-2">Голосуйте за любимые категории, выбирайте
+                        <p class="text-sm text-gray-500 mb-2 line-clamp-2">Голосуйте за любимые категории, выбирайте
                             категорию-победителя в мобильном приложении и получайте кешбэк 10% баллами в
                             апреле!</p>
                         <button
