@@ -75,12 +75,12 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-4 justify-end hidden md:flex">
-                    <a class="flex items-start" href="">
+                    <a class="flex items-start" href="./pages/like.html">
                         <button class="flex flex-col items-center hover:scale-105 transition text-xs cursor-pointer">
                             <img src="./images/Frame 211.svg" alt="Like" class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
                             <p class="text-[10px]">Избранное</p>
                         </button>
-                        <span id="likeBages" class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] text-[10px] font-bold bg-[blue]">0</span>
+                        <span id="like-badge" class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] text-[10px] font-bold bg-[blue]">0</span>
                     </a>
 
                     <a class="flex items-start" href="">
@@ -102,15 +102,30 @@
                             class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] text-[10px]  font-bold bg-[red]">0</span>
                     </a>
                 </div>
-                <div class="flex items-center gap-2">
-                    <img src="./images/avatar.svg" alt="avatar"
+                <div id="profile" class="flex items-center gap-2">
+                    <img id="profile-img" src="./images/avatar.svg" alt="avatar"
                         class="w-8 h-8 md:w-9 md:h-9 rounded-full border md:w-5 md:h-5" />
-                    <div class="font-medium text-sm md:text-base md:text-[14px]">Алексей</div>
+                    <div id="profile-name" class="font-medium text-sm md:text-base md:text-[14px]">Алексей</div>
                 </div>
             </div>
         </div>
     </header>
     <main class="overflow-hidden pt-20">
+        <section class="">
+            <div id="outer-modal" class="fixed hidden top-0 z-15 bg-[red]/30 w-full h-full flex items-center justify-center">
+                <form id="form" class="max-x-[500px] p-[30px] rounded-[20px] bg-white flex flex-col gap-[10px] text-center">
+                    <h3 >Вход</h3>
+                    <input required class=" border-[2px] border-[green] rounded-[5px] p-[10px] outline-none" type="text"
+                        placeholder="Фото Ссылка">
+                    <input required class=" border-[2px] border-[green] rounded-[5px] p-[10px] outline-none" type="text"
+                        placeholder="Имя">
+                    <input required class=" border-[2px] border-[green] rounded-[5px] p-[10px] outline-none" type="text"
+                        placeholder="Мобильный номер">
+                    <button type="submit"
+                        class="border-[2px] border-[green] bg-[green] rounded-[5px] p-[10px] outline-none text-white cursor-pointer">Вход</button>
+                </form>
+            </div>
+        </section>
         <section>
             <div class="relative h-[250px] w-full bg-cover" style="background-image: url('./images/Group\ 7100.png')">
                 <section class="container px-15 mx-auto px-4">
@@ -266,7 +281,7 @@
     <footer class="text-gray-700 relative w-full mt-10 overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('./images/bg.svg');">
         </div>
-        <div class="relative z-10 container mx-auto px-20 py-10">
+        <div class="relative z-5 container mx-auto px-20 py-10">
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
 
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
@@ -311,6 +326,7 @@
             </div>
         </div>
     </footer>
+    <script src="./js/form.js"></script>
     <script src="./js/search.js"></script>
     <script src="./js/products-data.js"></script>
     <script src="./js/main.js"></script>

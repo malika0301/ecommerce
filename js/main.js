@@ -1,47 +1,46 @@
-let cards = document.getElementById("cards")
-let newCards = document.getElementById("new")
-let vses = document.getElementById("vse")
-let loading = document.getElementById("loading")
-let aksiyaProducts = products.filter((el) => el.discount > 0)
+let cards = document.getElementById("cards");
+let newCards = document.getElementById("new");
+let vses = document.getElementById("vse");
+let loading = document.getElementById("loading");
+let aksiyaProducts = products.filter((el) => el.discount > 0);
 let cart = JSON.parse(localStorage.getItem("carts") || "[]");
 let like = JSON.parse(localStorage.getItem("likes") || "[]");
-let likeBages = document.getElementById("like-bages")
-let badge = document.getElementById("badge")
+let likeBadge = document.getElementById("like-badge");
+
+let badge = document.getElementById("badge");
+
+likeBadge.textContent = like.length
+
 localStorage.setItem("carts", JSON.stringify(cart));
 localStorage.setItem("likes", JSON.stringify(like));
-likeBages.textContent = like.length
-let aksiyaLastFourProducts = aksiyaProducts.slice(aksiyaProducts.length - 4, aksiyaProducts.length)
-let newFourProducts = products.slice(products.length - 4, products.length)
+
+let aksiyaLastFourProducts = aksiyaProducts.slice(aksiyaProducts.length - 4, aksiyaProducts.length);
+let newFourProducts = products.slice(products.length - 4, products.length);
 let vseFourProducts = products.slice(products.length - 8, products.length - 4);
 
 function showProducts(content, data) {
-    content.innerHTML = "";
+    content.innerHTML ="";
     data.map((el) => {
         content.innerHTML +=
             `<div class="w-full h-auto bg-white p-5 rounded-lg shadow hover:shadow-gray-700 transition duration-200">
                <div class="relative">
-                <img src="${el.images[0]}" alt="Товар" class="rounded-md mb-3 h-[200px] w-full object-cover">
+                <a href="../pages/single-page.html?id=${el.id}"><img src="${el.images[0]}" alt="Товар" class="rounded-md mb-3 h-[200px] w-full object-cover"></a>
                <div class="absolute bottom-2 left-2 bg-red-500 text-white text-[clamp(12px,1.2vw,16px)] px-3 py-1 rounded">-${el.discount}%</div>
-               ${
-        like.find((item) => item.id === el.id) ? `
-        <img onClick="addToLike(${el.id})"
-               class="w-[30px] cursor-pointer h-[30px] p-[3px] bg-[red] rounded-[5px] absolute top-[5px] right-[5px]" src="./images/like.svg" alt="">
-                ` : `<img 
-               onClick="addToLike(${el.id})"
-               class="w-[30px] cursor-pointer h-[30px] p-[3px] bg-[gray] rounded-[5px] absolute top-[5px] right-[5px]" src="./images/like.svg" alt="">
-                `
-               }
+               ${like.find((item) => item.id === el.id)
+                ? `<img onClick="removeToLike(${el.id})" class="w-[30px] cursor-pointer h-[30px] p-[3px] rounded-[5px] absolute top-[5px] right-[5px]" src="./images/liker.svg" alt="">`
+                : `<img onClick="addToLike(${el.id})" class="w-[30px] cursor-pointer h-[30px] p-[3px] bg-[gray]/80 rounded-[5px] absolute top-[5px] right-[5px]" src="./images/like.svg" alt="">`
+            }
                
              </div>
                 <div class="flex justify-between mt-10 mb-5">
-                <div class="flex items-center justify-between gap-15">
+                   <div class="flex items-center justify-between gap-15">
                     <div>
-                        <p class="flex flex-cols text-gray-600 text-[clamp(16px.3vw,20px)] font-bold">Обычная </p>
-                        <p class="flex flex-cols text-black-500 text-[clamp(16px.3vw,20px)] font-bold">${el.price}₽</p>
+                        <p class="flex flex-cols text-gray-600 text-[clamp(16px , 3vw,20px)] font-bold">Обычная </p>
+                        <p class="flex flex-cols text-black-500 text-[clamp(16px , 3vw,20px)] font-bold">${el.price}₽</p>
                     </div>
                     <div>
-                        <p class="text-gray-600 text-[clamp(16px.3vw,20px)] font-bold">С картой</p>
-                        <p class="text-black-500 text-[clamp(16px.3vw,20px)] font-bold">${el.price - el.price * el.discount / 100}₽</p>
+                        <p class="text-gray-600 text-[clamp(16px,3vw,20px)] font-bold">С картой</p>
+                        <p class="text-black-500 text-[clamp(16px,3vw,20px)] font-bold">${el.price - el.price * el.discount / 100}₽</p>
                     </div>
                     
                 </div>
@@ -91,7 +90,7 @@ function showProducts(content, data) {
                 <div class="flex justify-between w-27 h-5 mb-5">
                     <img class="h-5 w-5" src="./images/star.svg" alt="">
                     <img class="h-5 w-5" src="./images/star.svg" alt="">
-                    <img class="h-5 w-5" src=" src="./images/star yarm.svg" alt="">
+                    <img class="h-5 w-5" src="./images/star yarm.svg" alt="">
                     <img class="h-5 w-5" src="./images/star (1).svg" alt="">
                     <img class="h-5 w-5" src="./images/star (1).svg" alt="">
                  </div>`
@@ -128,7 +127,7 @@ function showProducts(content, data) {
           <button
           onClick ="increase(${el.id})" class="bg-[green] p-[10px] rounded-[5px] flex items-center justify-center text-[18px] font-bold text-white">+</button>
         </div>`
-                : `<button onClick="addToCart(${el.id})" class=" border border-green-500bg-transparent text-green-600 w-full mt-3 py-2 rounded hover:text-white hover:bg-orange-600 transition duration-200">В корзину</button>
+                : `<button onClick="addToCart(${el.id})" class=" border border-green-500 bg-transparent text-green-600 w-full mt-3 py-2 rounded hover:text-white hover:bg-orange-600 transition duration-200">В корзину</button>
                 </div> `}
                 </div> `;
 
@@ -140,11 +139,12 @@ function showProduct(content, data) {
         content.innerHTML +=
             `<div class="w-full h-auto bg-white p-5 rounded-lg shadow hover:shadow-gray-700 transition duration-200">
             <div class="relative">
-               <img src="${el.images[0]}" alt="Товар" class="rounded-md mb-3 h-[200px] w-full object-cover">
-                              <img 
-                              onClick="addToLike(${el.id})"
-                              class="w-[30px] cursor-pointer h-[30px] p-[3px] bg-[gray] rounded-[5px] absolute top-[5px] right-[5px]" src="./images/like.svg" alt="">
-            </div>
+               <a href="../pages/single-page.html?id=${el.id}"><img src="${el.images[0]}" alt="Товар" class="rounded-md mb-3 h-[200px] w-full object-cover"></a>
+               ${like.find((item) => item.id === el.id)
+                ? `<img onClick="removeToLike(${el.id})" class="w-[30px] cursor-pointer h-[30px] p-[3px] rounded-[5px] absolute top-[5px] right-[5px]" src="./images/liker.svg" alt="">`
+                : `<img onClick="addToLike(${el.id})" class="w-[30px] cursor-pointer h-[30px] p-[3px] bg-[gray]/80 rounded-[5px] absolute top-[5px] right-[5px]" src="./images/like.svg" alt="">`
+            }               
+               </div>
                 <div class="flex justify-between mt-10">
                         <p class="text-black-500 text-[clamp(16px.3vw,20px)] font-bold" >Цена: ${el.price}₽</p>
                     
@@ -194,7 +194,7 @@ function showProduct(content, data) {
                 <div class="flex justify-between w-27 h-5 mb-5">
                     <img class="h-5 w-5" src="./images/star.svg" alt="">
                     <img class="h-5 w-5" src="./images/star.svg" alt="">
-                    <img class="h-5 w-5" src=" src="./images/star yarm.svg" alt="">
+                    <img class="h-5 w-5" src="./images/star yarm.svg" alt="">
                     <img class="h-5 w-5" src="./images/star (1).svg" alt="">
                     <img class="h-5 w-5" src="./images/star (1).svg" alt="">
                  </div>`
@@ -230,7 +230,7 @@ function showProduct(content, data) {
           <button
           onClick ="increase(${el.id})" class="bg-[green] p-[10px] rounded-[5px] flex items-center justify-center text-[18px] font-bold text-white">+</button>
         </div>`
-                : `<button onClick="addToCart(${el.id})" class=" border border-green-500bg-transparent text-green-600 w-full mt-3 py-2 rounded hover:text-white hover:bg-orange-600 transition duration-200">В корзину</button>
+                : `<button onClick="addToCart(${el.id})" class=" border border-green-500 bg-transparent text-green-600 w-full mt-3 py-2 rounded hover:text-white hover:bg-orange-600 transition duration-200">В корзину</button>
                 </div> `}
                 </div> `;
 
@@ -241,11 +241,10 @@ showProducts(cards, aksiyaLastFourProducts);
 showProduct(newCards, newFourProducts);
 showProduct(vses, vseFourProducts);
 badge.textContent = cart.length
+
 window.addEventListener("load", function () {
     loading.classList.add("hidden")
-});
-
-
+})
 function addToCart(id) {
     let item = products.find((el) => el.id === id)
     item.numbers = 1
@@ -290,7 +289,17 @@ function decrease(id) {
 function addToLike(id) {
     let likeItem = products.find((el) => el.id === id);
     like.push(likeItem);
-    likeBages.textContent = like.length
+    likeBadge.textContent = like.length
     localStorage.setItem("likes", JSON.stringify(like));
-}
-
+    showProducts(cards, aksiyaLastFourProducts);
+    showProduct(newCards, newFourProducts);
+    showProduct(vses, vseFourProducts);
+};
+function removeToLike(id) {
+    like = like.filter((el) => el.id !== id);
+    likeBadge.textContent = like.length
+    localStorage.setItem("likes", JSON.stringify(like));
+    showProducts(cards, aksiyaLastFourProducts);
+    showProduct(newCards, newFourProducts);
+    showProduct(vses, vseFourProducts);
+};
