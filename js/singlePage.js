@@ -26,10 +26,10 @@ function showSingleProducts(){
     <div class="flex gap-[20px]">
                 <div class="w-[50%] flex gap-[5px]">
                     <div id="side-images" class="flex flex-col gap-[5px]">
-                        <img class="w-[90px] h-[90px]" src=${el.images[0]}
-                        <img class="w-[90px] h-[90px]" src=${el.images[1]}
-                        <img class="w-[90px] h-[90px]" src=${el.images[2]}
-                        <img class="w-[90px] h-[90px]" src=${el.images[3]}
+                        <img class="w-[90px] h-[90px]" src=${el.images[0]}/>
+                        <img class="w-[90px] h-[90px]" src=${el.images[1]}/>
+                        <img class="w-[90px] h-[90px]" src=${el.images[2]}/>
+                        <img class="w-[90px] h-[90px]" src=${el.images[3]}/>
                     </div>
                     <img id="main-img" class="max-w-[600px] w-full h-[375px] object-cover" src=${el.images[0]}
                         alt="">
@@ -120,8 +120,8 @@ function showProduct(content, data) {
             <div class="relative">
                <a href="../pages/single-page.html?id=${el.id}"><img src="${el.images[0]}" alt="Товар" class="rounded-md mb-3 h-[200px] w-full object-cover"></a>
                ${like.find((item) => item.id === el.id)
-                ? `<img onClick="removeToLike(${el.id})" class="w-[30px] cursor-pointer h-[30px] p-[3px] rounded-[5px] absolute top-[5px] right-[5px]" src="./images/liker.svg" alt="">`
-                : `<img onClick="addToLike(${el.id})" class="w-[30px] cursor-pointer h-[30px] p-[3px] bg-[gray]/80 rounded-[5px] absolute top-[5px] right-[5px]" src="./images/like.svg" alt="">`
+                ? `<img onClick="removeToLike(${el.id})" class="w-[30px] cursor-pointer h-[30px] p-[3px] rounded-[5px] absolute top-[5px] right-[5px]" src="../images/liker.svg" alt="">`
+                : `<img onClick="addToLike(${el.id})" class="w-[30px] cursor-pointer h-[30px] p-[3px] bg-[gray]/80 rounded-[5px] absolute top-[5px] right-[5px]" src="../images/like.svg" alt="">`
             }               
                </div>
                 <div class="flex justify-between mt-10">
@@ -129,7 +129,78 @@ function showProduct(content, data) {
                     
                 </div> 
                 <p class="mt-2 font-medium mb-5 line-clamp-2">${el.description}</p>
-                 
+                  ${el.rating === 5 ? `
+                    <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    </div>
+                    ` : el.rating === 4.5 ? `
+                    <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star yarm.svg" alt="">
+                    </div>`
+            : el.rating === 4 ? `
+                <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                 </div>`
+                : el.rating === 3.5 ? `
+                 <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star yarm.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                 </div>`
+                    : el.rating === 3 ? `
+                <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                 </div>`
+                        : el.rating === 2.5 ? `
+                <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star yarm.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                 </div>`
+                            : el.rating === 2 ? `
+                 <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    </div>`
+                                : el.rating === 1.5 ? `
+                    <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star yarm.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    </div>`
+                                    : el.rating === 1 ? `
+                    <div class="flex justify-between w-27 h-5 mb-5">
+                    <img class="h-5 w-5" src="../images/star.svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    <img class="h-5 w-5" src="../images/star (1).svg" alt="">
+                    </div>` : ""}
                        ${carts.find((item) => item.id === el.id) ? `
          <div class="w-full grid grid-cols-3 gap-[10px]">
           <button 

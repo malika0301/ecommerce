@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<div id="loading" class="fixed top-0 w-full h-full bg-[white] z-15 flex items-center justify-center">
+    <img src="../assets/images/loading/loading.svg" alt="">
+</div>
+<header class="bg-white shadow-md fixed top-0 left-0 w-full z-10">
+    <div class="container px-15 mx-auto flex flex-wrap items-center justify-between px-4 py-3">
+        <div class="flex justify-between items-center gap-5 mt-3 md:mt-0 w-full">
+            <div class="flex gap-5 justify-between items-center ">
+                <a href="../index.html"><img src="../images/logo (1).svg" alt="Logo"
+                        class="w-40 md:w-60 h-auto mb-2  sm:w-25" /></a>
+                <div
+                    class="bg-green-700 cursor-pointer text-white flex gap-[10px] items-center px-4 py-2 md:px-6 md:py-3 rounded-[10px] hover:bg-green-500 transition text-sm hidden lg:flex">
+                    <button class="w-[30px] h-[30px]"><img src="../images/menu.svg" class="object-cover"
+                            alt=""></button>
+                    <a href="../index.html">Каталог</a>
+                </div>
+                <div class="max-w-[600px] relative w-full flex flex-col gap-[5px]">
+                    <input id="input"
+                        class=" w-full border p-[12px] border-gray-300 hover:border-green-500 rounded-[10px] outline-none text-[18px] md:text-base hidden lg:flex"
+                        type="search" placeholder="Найти товар..." />
+                    <div id="search-cards"
+                        class="w-full absolute hidden max-h-[300px] overflow-y-scroll top-[70px] flex flex-col gap-[10px] border-[2px] bg-white border-[green] rounded-[10px] p-[10px]">
+
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 justify-end hidden md:flex">
+                <a class="flex items-start" href="../pages/like.html">
+                    <button class="flex flex-col items-center hover:scale-105 transition text-xs cursor-pointer">
+                        <img src="../images/Frame 211.svg" alt="Like" class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                        <p class="text-[10px]">Избранное</p>
+                    </button>
+                    <span id="like-badge"
+                        class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] text-[10px] font-bold bg-[blue]">0</span>
+                </a>
+
+                <a class="flex items-start" href="">
+                    <button class="flex flex-col items-center hover:scale-105 transition text-xs cursor-pointer">
+                        <img src="../images/Frame 211 (1).svg" alt="Product"
+                            class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                        <p class="text-[10px]">Продукты</p>
+                    </button>
+                    <span
+                        class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] font-bold text-[10px] bg-[green]">0</span>
+                </a>
+                <a class="flex items-start" href="../pages/korzinka.html">
+                    <button class="flex flex-col items-center hover:scale-105 transition text-xs cursor-pointer">
+                        <img src="../images/shopping-cart.svg" alt="Buy" class="w-6 h-6 md:w-5 md:h-5 lg:h-8 lg:w-8" />
+                        <p class="text-[10px]">Корзина</p>
+                    </button>
+                    <span id="badge"
+                        class="w-[17px] h-[17px] rounded-[50%] p-[4px] flex items-center justify-center text-[#F5F5F5] text-[10px]  font-bold bg-[red]">0</span>
+                </a>
+            </div>
+            <div id="profile" class="flex items-center gap-2">
+                <img id="profile-img" src="../images/avatar.svg" alt="avatar"
+                    class="w-8 h-8 md:w-9 md:h-9 rounded-full border md:w-5 md:h-5" />
+                <div id="profile-name" class="font-medium text-sm md:text-base md:text-[14px]">Алексей</div>
+            </div>
+        </div>
+    </div>
+</header>
+<body>
+    <main>
+        <section class="">
+            <div id="outer-modal" class="fixed hidden top-0 z-15 bg-[red]/30 w-full h-full flex items-center justify-center">
+                <form id="form" class="max-x-[500px] p-[30px] rounded-[20px] bg-white flex flex-col gap-[10px] text-center">
+                    <h3>Вход</h3>
+                    <input required class=" border-[2px] border-[green] rounded-[5px] p-[10px] outline-none" type="text"
+                        placeholder="Фото Ссылка">
+                    <input required class=" border-[2px] border-[green] rounded-[5px] p-[10px] outline-none" type="text"
+                        placeholder="Имя">
+                    <input required class=" border-[2px] border-[green] rounded-[5px] p-[10px] outline-none" type="text"
+                        placeholder="Мобильный номер">
+                    <button type="submit"
+                        class="border-[2px] border-[green] bg-[green] rounded-[5px] p-[10px] outline-none text-white cursor-pointer">Вход</button>
+                </form>
+            </div>
+        </section>
+        <div class="flex items-start">
+            <div class="w-[30%] flex gap-[20px] items-center fixed left-0 p-[20px] rounded-[20px] bg-white">
+                <input id="input1" class="border-[orangered] border-[2px] rounded-[5px] p-[10px]" type="number"
+                    placeholder="0 dan" />
+                <input id="input2" class="border-[orangered] border-[2px] rounded-[5px] p-[10px]" type="number"
+                    placeholder="gacha" />
+            </div>
+            <div class="cards ml-[35%] gap-[30px] w-[65%] grid grid-cols-3"></div>
+        </div>
+    </main>
+    <footer class="text-gray-700 relative w-full mt-10 overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('../images/bg.svg');">
+        </div>
+        <div class="relative z-5 container mx-auto px-20 py-10">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+    
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+                    <div class="w-20 h-20 flex items-center justify-center rounded-lg">
+                        <img src="../images/logo (2).svg" alt="">
+                    </div>
+    
+                    <div class="flex flex-col text-[clamp(12px,1.5vw,16px)] gap-2">
+                        <div class="flex flex-wrap gap-6">
+                            <a href="#" class="hover:text-green-400">Ссылка</a>
+                            <a href="#" class="hover:text-green-400">Контакты</a>
+                            <a href="#" class="hover:text-green-400">Вакансии</a>
+                        </div>
+                        <div class="flex flex-wrap gap-6">
+                            <a href="#" class="hover:text-green-400">Статьи</a>
+                            <a href="#" class="hover:text-green-400">Политика обработки</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="flex flex-col items-end gap-4">
+                    <div class="flex gap-4">
+                        <img src="../images/instagram.svg" class="w-6 h-6 hover:opacity-80">
+                        <img src="../images/vkontakte.svg" class="w-6 h-6 hover:opacity-80">
+                        <img src="../images/facebook.svg" class="w-6 h-6 hover:opacity-80">
+                        <img src="../images/ok.svg" class="w-6 h-6 hover:opacity-80">
+                    </div>
+                    <div class="flex items-center gap-2 text-[clamp(12px,1.5vw,16px)]">
+                        <img src="../images/phone.svg" class="w-5 h-5" alt="">
+                        <span>8 800 777 33 33</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div
+                class="mt-8 border-t border-gray-600 pt-4 flex flex-col md:flex-row items-center justify-between text-[clamp(10px,1.2vw,14px)] text-gray-400">
+                <div class="flex items-center gap-2">
+                    <a href="#" class="hover:text-green-400">Дизайн</a>
+                    <img src="../images/Union.svg" alt="">
+                </div>
+                <p class="mt-2 md:mt-0">© 2025 Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../products-data/products-data.js"></script>
+    <script src="../js/filter.js"></script>
+    <script src="../js/form.js"></script>
+    <script src="../js/loading.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+</html>
